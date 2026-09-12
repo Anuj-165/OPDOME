@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+    /* OPDOME dark theme - charcoal/near-black base */
+    --background: 220 14% 4%;       /* #090A0B */
+    --foreground: 0 0% 98%;          /* near-white */
+
+    --card: 220 12% 7%;              /* #0D0F10 area */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 14% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 152 51% 44%;          /* emerald */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 12% 12%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 220 12% 11%;
+    --muted-foreground: 220 8% 55%;
+
+    --accent: 152 40% 16%;
+    --accent-foreground: 152 30% 85%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --warning: 28 90% 52%;
+    --warning-foreground: 0 0% 98%;
+
+    --success: 142 60% 48%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 10% 14%;
+    --input: 220 10% 14%;
+    --ring: 152 51% 44%;
+
+    --chart-1: 152 51% 44%;   /* emerald */
+    --chart-2: 210 60% 55%;   /* blue */
+    --chart-3: 28 90% 55%;    /* orange */
+    --chart-4: 0 72% 56%;     /* red */
+    --chart-5: 250 50% 65%;   /* soft purple for misc */
+
+    --radius: 0.625rem; /* 10px */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    margin: 0;
+    min-height: 100vh;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220 10% 18%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(220 10% 22%);
+}
+
+/* Number tabular alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle fade-in animation */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-count-up {
+  animation: count-up 0.3s ease-out;
+}
+
+.settings-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: hsl(var(--foreground));
+  outline: none;
+  transition: border-color 0.15s;
+}
+.settings-input:focus {
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+.auth-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+  outline: none;
+  transition: border-color 0.15s;
+}
+.auth-input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+.auth-input:focus {
+  border-color: hsl(var(--primary) / 0.3);
+}

@@ -435,7 +435,7 @@ The current project focuses on building the core OPDOME experience, including:
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/OPDOME.git
+git clone  https://github.com/Anuj-165/OPDOME.git
 cd OPDOME
 ```
 
